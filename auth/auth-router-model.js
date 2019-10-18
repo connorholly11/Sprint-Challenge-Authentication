@@ -2,12 +2,17 @@ const db = require("../database/dbConfig");
 
 module.exports = {
   getUsers,
+  getUsersById,
   addUser,
   findBy
 };
 
 function getUsers() {
   return db("users");
+}
+
+function getUsersById(id) {
+  return db("users").where("id", "=", id);
 }
 
 // async function addUserTesting(newUser) {

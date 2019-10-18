@@ -2,21 +2,13 @@ const request = require("supertest");
 const server = require("../api/server");
 const Users = require("./auth-router-model");
 const db = require("../database/dbConfig");
+const auth = require("./auth-router");
 
 // describe("auth-router endpoints", () => {
 //   it("should return a 200 status code", async () => {
-//     const response = await request(server).get("/api/auth/users");
+//     await request(auth).get("/users");
 //   });
 // });
-
-// describe('login', () => {
-
-//     it('passes with correct credentials', async () => {
-//         const response = await request(server).post('/api/auth/login')
-//         .expect(200)
-//         expect(res.body.user)
-//     })
-// })
 
 describe("testing methods for all endpoints", () => {
   beforeEach(async () => {
@@ -66,7 +58,8 @@ describe("testing methods for all endpoints", () => {
     await Users.addUser({ username: "a", password: "a" });
     records = await db("users");
     Allusers = await Users.getUsers();
-    console.log(Allusers);
+    user1 = await Users.getUsersById(1);
+    expect(user1).toEqual([{ id: 1, username: "a", password: "a" }]);
   });
 
   //make sure all endpoints are getting reached by server
