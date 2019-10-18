@@ -50,13 +50,13 @@ router.post("/login", (req, res) => {
         } else {
           res.status(401).json({ message: "invalid credentials" });
         }
+      })
+      .catch(error => {
+        res.status(500).json({
+          error: error,
+          message: "there was 500 error logging in!"
+        });
       });
-    // .catch(error => {
-    //   res.status(500).json({
-    //     error: error,
-    //     message: "there was 500 error logging in!"
-    //   });
-    // });
   } else {
     res.status(401).json({ message: "invalid username and/or password" });
   }
