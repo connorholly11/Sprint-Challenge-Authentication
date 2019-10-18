@@ -1,3 +1,12 @@
+- What is the purpose of using sessions?
+  - So we can have restricted access for people that have a session. Also it stores session data with a unique session id.
+- What does bcrypt do to help us store passwords in a secure manner.
+  - it creates a hash which is a one way function that is nearly impossible to invert
+- What does bcrypt do to slow down attackers?
+  - It creates a hash from your password which is a random string to a size that you allocate
+- What are the three parts of the JSON Web Token?
+  - Header, payload (where the data is), signature(the part that is encrypted)
+
 # Sprint Challenge: Authentication - Dad Jokes
 
 ## Description
