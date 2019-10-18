@@ -15,4 +15,7 @@ server.use(express.json());
 server.use("/api/auth", authRouter);
 // server.use("/api/jokes", restricted, jokesRouter);
 
+server.get("/", (req, res) => {
+  res.status(200).json({ message: "hello world" });
+});
 module.exports = server;

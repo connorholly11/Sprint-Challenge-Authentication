@@ -10,8 +10,8 @@ function getUsers() {
   return db("users");
 }
 
-// function addUser(newUser) {
-//   const [id] = db("users").insert(newUser);
+// async function addUserTesting(newUser) {
+//   const [id] = await db("users").insert(newUser);
 
 //   return db("users")
 //     .where({ id })
